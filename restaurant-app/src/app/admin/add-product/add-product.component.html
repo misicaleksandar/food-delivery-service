@@ -1,0 +1,42 @@
+<div class="container w-50">
+    <form [formGroup]="addProductForm" class="mt-5" autocomplete="off">
+    
+      <div class="row mb-3 align-items-center">
+        <div class="col-2">
+          <label class="form-label">Name</label>
+        </div>
+        <div class="col-10">
+          <input class="form-control" formControlName="Name">
+          <label class="text-danger" *ngIf="addProductForm.get('Name')?.touched && addProductForm.get('Name')?.errors?.['required']">This
+            field is mandatory.</label>
+        </div>
+      </div>
+
+      <div class="row mb-3 align-items-center">
+        <div class="col-2">
+          <label class="form-label">Ingredients</label>
+        </div>
+        <div class="col-10">
+          <input class="form-control" formControlName="Ingredients">
+          <label class="text-danger" *ngIf="addProductForm.get('Ingredients')?.touched && addProductForm.get('Ingredients')?.errors?.['required']">This
+            field is mandatory.</label>
+        </div>
+      </div>
+    
+      <div class="row mb-3 align-items-center">
+        <div class="col-2">
+          <label class="form-label">Price</label>
+        </div>
+        <div class="col-10">
+          <input type="number" class="form-control" formControlName="Price" [(ngModel)]="price" min="0.01" max="99.99">
+          <label class="text-danger" *ngIf="addProductForm.get('Price')?.touched && addProductForm.get('Price')?.errors?.['required']">This
+            field is mandatory.</label>
+        </div>
+      </div>
+    
+      <div class="row">
+        <button type="button" class="btn btn-primary" [disabled]="addProductForm.invalid" (click)="onSubmit()">Add product</button>
+      </div>
+    
+    </form>
+  </div>

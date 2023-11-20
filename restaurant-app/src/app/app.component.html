@@ -1,0 +1,7 @@
+<nav class="navbar navbar-dark bg-dark" *ngIf="isLoggedIn()">
+  <div class="container">
+      <button type="button" class="btn btn-outline-light" routerLink="/dashboard">Dashboard</button>
+      <button type="button" class="btn btn-outline-light" (click)="logOut()">Log Out</button>
+  </div>
+</nav>
+<router-outlet></router-outlet>

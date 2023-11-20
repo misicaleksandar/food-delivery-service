@@ -1,0 +1,32 @@
+<div class="container mt-5 text-center">
+    <h1>Deliverers:</h1>
+    <table class="table table-striped mt-3 text-center">
+        <thead>
+          <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Date of birth</th>
+            <th scope="col">Address</th>
+            <th scope="col">Type</th>
+            <th scope="col">Verified</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let deliverer of deliverers">
+            <td>{{deliverer.username}}</td>
+            <td>{{deliverer.email}}</td>
+            <td>{{deliverer.firstName}}</td>
+            <td>{{deliverer.lastName}}</td>
+            <td>{{deliverer.dateOfBirth.split('T')[0]}}</td>
+            <td>{{deliverer.address}}</td>
+            <td>{{deliverer.type}}</td>
+            <td>{{deliverer.verified}}</td>
+            <td *ngIf="!deliverer.verified"><button type="button" class="btn btn-success" (click)="changeDelivererStatus(deliverer.email, true)">Approve</button></td>
+            <td *ngIf="deliverer.verified"><button type="button" class="btn btn-danger" (click)="changeDelivererStatus(deliverer.email, false)">Disapprove</button></td>
+          </tr>
+        </tbody>
+    </table>
+</div>
+  

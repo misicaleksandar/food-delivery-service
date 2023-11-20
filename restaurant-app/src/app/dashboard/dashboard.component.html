@@ -1,0 +1,105 @@
+<div class="container">
+    <div class="row mt-5 justify-content-center align-items-center">
+        
+        <div class="col-3" *ngIf="isCustomer() || isDeliverer() || isAdministrator()">
+            <div class="card text-bg-light text-center mb-5">
+                <div class="card-body">
+                  <h5 class="card-title">Profile</h5>
+                  <p class="card-text">View and edit your data</p>
+                  <a routerLink='/profile' class="btn btn-primary">Open</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3" *ngIf="isCustomer() || isSocialCustomer()">
+            <div class="card text-bg-light text-center mb-5">
+                <div class="card-body">
+                  <h5 class="card-title">New order</h5>
+                  <p class="card-text">Create a new order</p>
+                  <a routerLink="/customer/new-order" class="btn btn-primary">Open</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3" *ngIf="isCustomer() || isSocialCustomer()">
+            <div class="card text-bg-light text-center mb-5">
+                <div class="card-body">
+                  <h5 class="card-title">My order</h5>
+                  <p class="card-text">Display the current order</p>
+                  <a routerLink="/customer/my-order" class="btn btn-primary">Open</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3" *ngIf="isCustomer() || isSocialCustomer()">
+            <div class="card text-bg-light text-center mb-5">
+                <div class="card-body">
+                  <h5 class="card-title">Previous orders</h5>
+                  <p class="card-text">Overview of previous orders</p>
+                  <a routerLink="/customer/previous-orders" class="btn btn-primary">Open</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3" *ngIf="isDeliverer()">
+            <div class="card text-bg-light text-center mb-5">
+                <div class="card-body">
+                  <h5 class="card-title">New orders</h5>
+                  <p class="card-text">Overview of new orders</p>
+                  <a routerLink="/deliverer/new-orders" class="btn btn-primary">Open</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3" *ngIf="isDeliverer()">
+            <div class="card text-bg-light text-center mb-5">
+                <div class="card-body">
+                  <h5 class="card-title">My orders</h5>
+                  <p class="card-text">Overview of your orders</p>
+                  <a routerLink="/deliverer/my-orders" class="btn btn-primary">Open</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3" *ngIf="isDeliverer()">
+            <div class="card text-bg-light text-center mb-5">
+                <div class="card-body">
+                  <h5 class="card-title">Current order</h5>
+                  <p class="card-text">Your current order</p>
+                  <a routerLink="/deliverer/current-order" class="btn btn-primary">Open</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3" *ngIf="isAdministrator()">
+            <div class="card text-bg-light text-center mb-5">
+                <div class="card-body">
+                  <h5 class="card-title">Verification</h5>
+                  <p class="card-text">Verify the deliverers</p>
+                  <a routerLink="/admin/verification" class="btn btn-primary">Open</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3" *ngIf="isAdministrator()">
+            <div class="card text-bg-light text-center mb-5">
+                <div class="card-body">
+                  <h5 class="card-title">All orders</h5>
+                  <p class="card-text">Overview of all orders</p>
+                  <a routerLink="/admin/all-orders" class="btn btn-primary">Open</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3" *ngIf="isAdministrator()">
+            <div class="card text-bg-light text-center mb-5">
+                <div class="card-body">
+                  <h5 class="card-title">Add products</h5>
+                  <p class="card-text">Add products to the restaurant</p>
+                  <a routerLink="/admin/add-product" class="btn btn-primary">Open</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

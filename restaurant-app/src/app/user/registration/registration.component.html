@@ -1,0 +1,130 @@
+<form [formGroup]="registrationForm" class="mt-5" autocomplete="off">
+  
+    <div class="row mb-3 align-items-center">
+        <div class="col-2">
+          <label class="form-label">Username</label>
+        </div>
+        <div class="col-10">
+          <input class="form-control" formControlName="Username">
+          <label class="text-danger" *ngIf="registrationForm.get('Username')?.touched && registrationForm.get('Username')?.errors?.['required']">This
+            field is mandatory.</label>
+        </div>
+    </div>
+  
+    <div class="row mb-3 align-items-center">
+      <div class="col-2">
+        <label class="form-label">Email</label>
+      </div>
+      <div class="col-10">
+        <input type="email" class="form-control" formControlName="Email">
+        <label class="text-danger" *ngIf="registrationForm.get('Email')?.touched && registrationForm.get('Email')?.errors?.['required']">This
+          field is mandatory.</label>
+        <label class="text-danger" *ngIf="registrationForm.get('Email')?.touched && registrationForm.get('Email')?.errors?.['email']">Invalid
+          email address.
+        </label>
+      </div>
+    </div>
+  
+    <div formGroupName="Passwords">
+      <div class="row mb-3 align-items-center">
+        <div class="col-2">
+          <label class="form-label">Password</label>
+        </div>
+        <div class="col-10">
+          <input type="password" class="form-control" formControlName="Password">
+          <label class="text-danger" *ngIf="registrationForm.get('Passwords.Password')?.touched && registrationForm.get('Passwords.Password')?.errors?.['required']">This
+            field is mandatory.</label>
+          <label class="text-danger" *ngIf="registrationForm.get('Passwords.Password')?.touched && registrationForm.get('Passwords.Password')?.errors?.['minlength']">Minimum
+            4 characters required.</label>
+        </div>
+      </div>
+    
+      <div class="row mb-3 align-items-center">
+        <div class="col-2">
+          <label class="form-label">Confirm password</label>
+        </div>
+        <div class="col-10">
+          <input type="password" class="form-control" formControlName="ConfirmPassword">
+          <label class="text-danger" *ngIf="registrationForm.get('Passwords.ConfirmPassword')?.touched && registrationForm.get('Passwords.ConfirmPassword')?.errors?.['required']">This
+            field is mandatory.</label>
+          <label class="text-danger" *ngIf="registrationForm.get('Passwords.ConfirmPassword')?.touched && registrationForm.get('Passwords.ConfirmPassword')?.errors?.['passwordMismatch']">Passwords
+             do not match.</label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row mb-3 align-items-center">
+      <div class="col-2">
+        <label class="form-label">First name</label>
+      </div>
+      <div class="col-10">
+        <input class="form-control" formControlName="FirstName">
+        <label class="text-danger" *ngIf="registrationForm.get('FirstName')?.touched && registrationForm.get('FirstName')?.errors?.['required']">This
+          field is mandatory.</label>
+      </div>
+    </div>
+  
+    <div class="row mb-3 align-items-center">
+      <div class="col-2">
+        <label class="form-label">Last name</label>
+      </div>
+      <div class="col-10">
+        <input class="form-control" formControlName="LastName">
+        <label class="text-danger" *ngIf="registrationForm.get('LastName')?.touched && registrationForm.get('LastName')?.errors?.['required']">This
+          field is mandatory.</label>
+      </div>
+    </div>
+  
+    <div class="row mb-3 align-items-center">
+      <div class="col-2">
+        <label class="form-label">Date of birth</label>
+      </div>
+      <div class="col-10">
+        <input type="date" class="form-control" formControlName="DateOfBirth">
+        <label class="text-danger" *ngIf="registrationForm.get('DateOfBirth')?.touched && registrationForm.get('DateOfBirth')?.errors?.['required']">This
+          field is mandatory.</label>
+      </div>
+    </div>
+  
+    <div class="row mb-3 align-items-center">
+      <div class="col-2">
+        <label class="form-label">Address</label>
+      </div>
+      <div class="col-10">
+        <input class="form-control" formControlName="Address">
+        <label class="text-danger" *ngIf="registrationForm.get('Address')?.touched && registrationForm.get('Address')?.errors?.['required']">This
+          field is mandatory.</label>
+      </div>
+    </div>
+  
+    <div class="row mb-3 align-items-center">
+      <div class="col-2">
+        <label class="form-label">Type</label>
+      </div>
+      <div class="col-10">
+        <select class="form-select" formControlName="Type">
+          <option value="Customer">Customer</option>
+          <option value="Deliverer">Deliverer</option>
+        </select>
+        <label class="text-danger" *ngIf="registrationForm.get('Type')?.touched && registrationForm.get('Type')?.errors?.['required']">This
+          field is mandatory.</label>
+      </div>
+    </div>
+  
+    <div class="row mb-3 align-items-center">
+      <div class="col-2">
+        <label class="form-label">Image</label>
+      </div>
+      <div class="col-10">
+        <input type="file" #file class="form-control" aria-label="file example" (change)="uploadFile(file.files)" formControlName="Image"/>
+        <label class="text-danger" *ngIf="registrationForm.get('Image')?.touched && registrationForm.get('Image')?.errors?.['required']">This
+          field is mandatory.</label>
+      </div>
+    </div>
+  
+    <div class="row">
+      <button type="submit" class="btn btn-primary" [disabled]="registrationForm.invalid"  (click)="onSubmit()">Sign Up</button>
+    </div>
+  
+  </form>
+  

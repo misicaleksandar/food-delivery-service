@@ -1,0 +1,139 @@
+<div class="container">
+    <div class="row">
+      
+      <div class="col mt-5">      
+        <form [formGroup]="profileForm" autocomplete="off">
+    
+          <div class="row mb-3 align-items-center">
+              <div class="col-2">
+                <label class="form-label">Username</label>
+              </div>
+              <div class="col-10">
+                <input class="form-control" formControlName="Username">
+                <label class="text-danger" *ngIf="profileForm.get('Username')?.touched && profileForm.get('Username')?.errors?.['required']">This
+                  field is mandatory.</label>
+              </div>
+          </div>
+        
+          <div class="row mb-3 align-items-center">
+            <div class="col-2">
+              <label class="form-label">Email</label>
+            </div>
+            <div class="col-10">
+              <input type="email" class="form-control" formControlName="Email" readonly>
+              <label class="text-danger" *ngIf="profileForm.get('Email')?.touched && profileForm.get('Email')?.errors?.['required']">This
+                field is mandatory.</label>
+              <label class="text-danger" *ngIf="profileForm.get('Email')?.touched && profileForm.get('Email')?.errors?.['email']">Invalid
+                email address.
+              </label>
+            </div>
+          </div>
+          
+          <div class="row mb-3 align-items-center">
+            <div class="col-2">
+              <label class="form-label">First name</label>
+            </div>
+            <div class="col-10">
+              <input class="form-control" formControlName="FirstName">
+              <label class="text-danger" *ngIf="profileForm.get('FirstName')?.touched && profileForm.get('FirstName')?.errors?.['required']">This
+                field is mandatory.</label>
+            </div>
+          </div>
+        
+          <div class="row mb-3 align-items-center">
+            <div class="col-2">
+              <label class="form-label">Last name</label>
+            </div>
+            <div class="col-10">
+              <input class="form-control" formControlName="LastName">
+              <label class="text-danger" *ngIf="profileForm.get('LastName')?.touched && profileForm.get('LastName')?.errors?.['required']">This
+                field is mandatory.</label>
+            </div>
+          </div>
+        
+          <div class="row mb-3 align-items-center">
+            <div class="col-2">
+              <label class="form-label">Date of birth</label>
+            </div>
+            <div class="col-10">
+              <input type="date" class="form-control" formControlName="DateOfBirth">
+              <label class="text-danger" *ngIf="profileForm.get('DateOfBirth')?.touched && profileForm.get('DateOfBirth')?.errors?.['required']">This
+                field is mandatory.</label>
+            </div>
+          </div>
+        
+          <div class="row mb-3 align-items-center">
+            <div class="col-2">
+              <label class="form-label">Address</label>
+            </div>
+            <div class="col-10">
+              <input class="form-control" formControlName="Address">
+              <label class="text-danger" *ngIf="profileForm.get('Address')?.touched && profileForm.get('Address')?.errors?.['required']">This
+                field is mandatory.</label>
+            </div>
+          </div>
+        
+          <div class="row mb-3 align-items-center">
+            <div class="col-2">
+              <label class="form-label">Type</label>
+            </div>
+            <div class="col-10">
+              <input class="form-control" formControlName="Type" readonly>
+            </div>
+          </div>
+  
+          <div class="row">
+            <button type="submit" class="btn btn-primary" [disabled]="profileForm.invalid" (click)="updateProfile()">Update</button>
+          </div>
+        
+        </form>
+      </div>
+  
+  
+      <div class="col mt-5 text-center ps-5">
+  
+        <input type="file" #file class="form-control" aria-label="file example" style="display: none" (change)="changePicture(file.files)"/>
+        <img id="profileImage" class="mb-2" height="150" width="150" />
+        <div class="row">
+          <button type="button" class="btn btn-primary mb-5" (click)="file.click()">Change picture</button>
+        </div>
+  
+        <div [formGroup]="passwordForm" autocomplete="off">
+  
+          <div class="row mb-3 align-items-center">
+            <div class="col-2">
+              <label class="form-label">New password</label>
+            </div>
+            <div class="col-10">
+              <input type="password" class="form-control" formControlName="Password">
+              <label class="text-danger" *ngIf="passwordForm.get('Password')?.touched && passwordForm.get('Password')?.errors?.['required']">This
+                field is mandatory.</label>
+              <label class="text-danger" *ngIf="passwordForm.get('Password')?.touched && passwordForm.get('Password')?.errors?.['minlength']">Minimum
+                4 characters required.</label>
+            </div>
+          </div>
+    
+          <div class="row mb-3 align-items-center">
+            <div class="col-2">
+              <label class="form-label">Confirm new password</label>
+            </div>
+            <div class="col-10">
+              <input type="password" class="form-control" formControlName="ConfirmPassword">
+              <label class="text-danger" *ngIf="passwordForm.get('ConfirmPassword')?.touched && passwordForm.get('ConfirmPassword')?.errors?.['required']">This
+                field is mandatory.</label>
+              <label class="text-danger" *ngIf="passwordForm.get('ConfirmPassword')?.touched && passwordForm.get('ConfirmPassword')?.errors?.['passwordMismatch']">Confirm
+                password does not match.</label>
+            </div>
+          </div>
+  
+          <div class="row">
+            <button type="submit" class="btn btn-primary" [disabled]="passwordForm.invalid" (click)="changePassword()">Change password</button>
+          </div>
+  
+        </div>
+
+      </div>
+  
+    </div>
+  </div>
+  
